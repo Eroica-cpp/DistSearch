@@ -1,9 +1,12 @@
-ElasticSearch, Sphinx, Lucene, Solr, Xapian. Which fits for which usage?=========================
+ElasticSearch, Sphinx, Lucene, Solr, Xapian. Which fits for which usage?  
+=========================
 link:
 [http://stackoverflow.com/questions/2271600/elasticsearch-sphinx-lucene-solr-xapian-which-fits-for-which-usage](http://stackoverflow.com/questions/2271600/elasticsearch-sphinx-lucene-solr-xapian-which-fits-for-which-usage)
 
-Answer 
+Answer
 ===============
+by Tshepang and kimchy
+
 As the creator of ElasticSearch, maybe I can give you some reasoning on why I went ahead and created it in the first place :).
 
 Using pure Lucene is challenging. There are many things that you need to take care for if you want it to really perform well, and also, its a library, so no distributed support, its just an embedded Java library that you need to maintain.
