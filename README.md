@@ -10,11 +10,14 @@ Search Engine
 参考文献及学习笔记
 
 #### 1. [Building a Search Engine with Nutch and Solr in 10 minutes](http://www.building-blocks.com/thinking/building-a-search-engine-with-nutch-and-solr-in-10-minutes/)
-详细的教程，但是版本有一点老，很多链接失效了。
-下面有评论：
-“I'm using nutch 1.7 and solr 3.6.2. I fetch a problem by using your above code of solrconfig.xml there has an error. i think the name attribute of lst under request handler will not "defaults" its "default" for solr 3.6.2 with nutch 1.7. hope you will make correction or specify version specific note. i read the document. they told that "default" is a magic word for this configuration. hope it may helpful for someone...”
-官网的教程[NutchTutorial](http://wiki.apache.org/nutch/NutchTutorial)足够好足够详细，step by step.
 
+详细的教程，但是版本有一点老，很多链接失效了。  
+
+下面有评论：  
+
+“I'm using nutch 1.7 and solr 3.6.2. I fetch a problem by using your above code of solrconfig.xml there has an error. i think the name attribute of lst under request handler will not "defaults" its "default" for solr 3.6.2 with nutch 1.7. hope you will make correction or specify version specific note. i read the document. they told that "default" is a magic word for this configuration. hope it may helpful for someone...”  
+
+我觉得只看[官网的教程](http://wiki.apache.org/nutch/NutchTutorial)就行了，足够好足够详细  
 
 #### 2. [Nutch Tutorial on Ubuntu (10 easy steps)](https://sites.google.com/site/profileswapnilkulkarni/tech-talk/nutchtutorialonubuntu10easysteps)
 
