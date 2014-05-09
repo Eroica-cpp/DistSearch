@@ -55,6 +55,9 @@ $ sudo service tomcat6 start
 官方nutch教程，里面写的相当详细。  
 注：这个是nutch 1.x 版本的教程， nutch有2.x的版本了，但是文档不是很多。建议还是用nutch 1.7或1.8
 
+#### 6. [Python 爬虫如何入门学习？](http://www.zhihu.com/question/20899988/answer/24923424?utm_campaign=official_account&utm_source=weibo&utm_medium=zhihu&utm_content=answer)
+知乎上关于爬虫的一个很好的讲解，里面涉及到集群爬虫，不过用的是python.
+
 
 
 
