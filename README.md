@@ -7,9 +7,7 @@ Search Engine
 
 
 ## Reference
-[Building a Search Engine with Nutch and Solr in 10 minutes](http://www.building-blocks.com/thinking/building-a-search-engine-with-nutch-and-solr-in-10-minutes/)  
-[Nutch Tutorial on Ubuntu (10 easy steps)](https://sites.google.com/site/profileswapnilkulkarni/tech-talk/nutchtutorialonubuntu10easysteps)
 
-
-
-!!!!!!!!!!!!
+1. [Building a Search Engine with Nutch and Solr in 10 minutes](http://www.building-blocks.com/thinking/building-a-search-engine-with-nutch-and-solr-in-10-minutes/)  
+2. [Nutch Tutorial on Ubuntu (10 easy steps)](https://sites.google.com/site/profileswapnilkulkarni/tech-talk/nutchtutorialonubuntu10easysteps)
+3. [Install & Configure Solr on Ubuntu, the quickest way](https://github.com/sunspot/sunspot/wiki/Configure-Solr-on-Ubuntu,-the-quickest-way)
