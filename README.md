@@ -2,8 +2,8 @@ Search Engine
 ============
 
 现在开了一个github的仓库，用来：
-1. 托管搭建搜索引擎的代码。
-2. 记录各种学习资料和学习笔记。
+1. 托管搭建搜索引擎的代码。  
+2. 记录各种学习资料和学习笔记。  
 
 
 ## Reference
@@ -15,8 +15,8 @@ Search Engine
 #### 3. [Install & Configure Solr on Ubuntu, the quickest way](https://github.com/sunspot/sunspot/wiki/Configure-Solr-on-Ubuntu,-the-quickest-way)
 
 这篇文章主要讲两个方面：
-	1. 安装
-	2. 配置
+	1. 安装  
+	2. 配置  
 
 ###### 安装
 安装需要有java JDK6以上，没有的话：
@@ -24,7 +24,7 @@ Search Engine
 $ sudo apt-get install openjdk-6-jdk
 ```
 
-然后直接用apt-get安装，40MB左右：
+然后直接用apt-get安装solr和tomcat，40MB左右：
 ```
 $ sudo apt-get install solr-tomcat
 ```
