@@ -58,7 +58,8 @@ $ sudo service tomcat6 start
 #### 6. [Python 爬虫如何入门学习？](http://www.zhihu.com/question/20899988/answer/24923424?utm_campaign=official_account&utm_source=weibo&utm_medium=zhihu&utm_content=answer)
 知乎上关于爬虫的一个很好的讲解，里面涉及到集群爬虫，不过用的是python.
 
-
+#### 7. [Git 教學(1) : Git 的基本使用](http://blog.gogojimmy.net/2012/01/17/how-to-use-git-1-git-basic/)
+git 入门教程，写的很详细很好，第二篇[Git 教學(2)：Git Branch 的操作與基本工作流程](http://blog.gogojimmy.net/2012/01/21/how-to-use-git-2-basic-usage-and-worflow/)讲解git下多人协作的流程。
 
 
 
