@@ -3,8 +3,7 @@
 !CHANGES.txt
 !LICENSE.txt
 !NOTICE.txt
-!README.*
-!urls/*
-!*/seed.txt
-!conf/*
-!docs/*
+!README.txt
+!/urls/
+!/conf/
+!/docs/
