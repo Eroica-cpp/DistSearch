@@ -25,8 +25,7 @@ I found that nutch crawlled a lot at the first few iterations.
 But after that it only crawlled few webpages in every iteration. This is an indicator that SZU have been fully crawlled.
 Every page in SZU has been crawlled.
 
-##### !IMPORTANT! I am skeptical about this. I think the action described above --- "I stopped the crawler, cleaned the out-of-szu.edu.cn data of the crawlers by:  "
-might have causes other changes, perhaps filtering out some SZU urls, thus causing the crawler cannot find any outlinks.  
+##### !IMPORTANT! I am skeptical about this. I think the action described above --- "I stopped the crawler, cleaned the out-of-szu.edu.cn data of the crawlers" might have caused other changes, perhaps filtering out some SZU urls, thus causing the crawler cannot find any outlinks.  
 So I started another brand-new crawlling: $NUTCH/SZU_Crawl_2, using the corrected configuration described above, 
 because a new crawlling is more "pure" than the previous one and is unaffected by the potential side-effect of "mergedb", "mergelinkdb".
 
