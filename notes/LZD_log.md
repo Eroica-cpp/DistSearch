@@ -29,3 +29,4 @@ Every page in SZU has been crawlled.
 So I started another brand-new crawlling: $NUTCH/SZU_Crawl_2, using the corrected configuration described above, 
 because a new crawlling is more "pure" than the previous one and is unaffected by the potential side-effect of "mergedb", "mergelinkdb".
 
+cmdline used: bin/mycrawl urls/SZUseed.txt SZU_Crawl_2 http://localhost:8983/solr 100 | tee SZU_Crawl_2_20140602.out
