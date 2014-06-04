@@ -46,7 +46,7 @@ Now I figured out what happened. The webpage is filtered out by robots.txt. Even
 
 That's how I figure out this:  
 Nutch has a useful feature---dumping its crawl database.  
-1. bin/nutch readdb -dump SZU_Crawl_3/crawldb/ DUMPCRAWLDB3  
+1.bin/nutch readdb -dump SZU_Crawl_3/crawldb/ DUMPCRAWLDB3  
 
       http://www.szu.edu.cn/board/    Version: 7
       Status: 3 (db_gone)
@@ -61,7 +61,7 @@ Nutch has a useful feature---dumping its crawl database.
 The last line clearly indicates : ROBOTS_DENIED(18)  
 Now let's see what's in the other two databases using command readseg and readlinkdb  
 
-2. bin/nutch readlinkdb SZU_Crawl_2/linkdb/ -dump DUMPLINKDB2  
+2.bin/nutch readlinkdb SZU_Crawl_2/linkdb/ -dump DUMPLINKDB2  
 
       http://aec.szu.edu.cn/  Inlinks:  
       fromUrl: http://www.szu.edu.cn/2014/news/index_82.html anchor: 社会培训  
@@ -71,8 +71,7 @@ Now let's see what's in the other two databases using command readseg and readli
       fromUrl: http://www.szu.edu.cn/2014/news/180.html anchor: 成人高等教育  
       ..............   
       
-\3. bin/nutch readseg SZU_Crawl_3/segments/20140604170003/ TESTDUMP  
-
+3.bin/nutch readseg SZU_Crawl_3/segments/20140604170003/ TESTDUMP  
 
       Recno:: 0  
       URL:: http://www.szu.edu.cn/board/  
