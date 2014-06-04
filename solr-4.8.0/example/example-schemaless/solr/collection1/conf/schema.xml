@@ -113,6 +113,8 @@
     <field name="id" type="string" indexed="true" stored="true" required="true" multiValued="false" />
     <field name="_version_" type="long" indexed="true" stored="true"/>
 
+    <!-- added by litao-->
+<!--     <field name="text_ika" type="textIKA" indexed="true" stored="true" required="true" /> -->
 
     <!-- Dynamic field definitions allow using convention over configuration
        for fields via the specification of patterns to match field names. 
@@ -1037,6 +1039,31 @@
         <filter class="solr.SnowballPorterFilterFactory" language="Turkish"/>
       </analyzer>
     </fieldType>
+
+    <!-- Chinese! added by litao-->
+<!--     <fieldType name="textIKA" positionIncrementGap="100">
+        <analyzer type="index">
+        <tokenizer class = "org.wltea.analyzer.solr.IKTokenizerFactory" isMaxWordLength="false" />
+        <filter ignoreCase="true" words="stopwords.txt" enablePositionIncrements="true" />
+        <filter generateWordParts="1" generateNumberParts="1" catenateWords="1" catenateNumbers="1" catenateAll="0" splitOnCaseChange="1" />
+    <filter /> -->
+     
+     <!-- Chinese! added by litao-->
+<!--     <filter protected="protwords.txt" />
+        <filter />
+        </analyzer>
+        <analyzer type="query">
+        <tokenizer class = "org.wltea.analyzer.solr.IKTokenizerFactory" isMaxWordLength="true" />
+        <filter synonyms="synonyms.txt" ignoreCase="true" expand="true" />
+        <filter ignoreCase="true" words="stopwords.txt" />
+        <filter generateWordParts="1" generateNumberParts="1" catenateWords="0" catenateNumbers="0" catenateAll="0" splitOnCaseChange="1" />
+    <filter /> -->
+     
+     <!-- Chinese! added by litao-->
+<!--     <filter protected="protwords.txt" />
+        <filter />
+        </analyzer>
+    </fieldType>   -->
 
   
   <!-- Similarity is the scoring routine for each document vs. a query.
