@@ -30,3 +30,68 @@ So I started another brand-new crawlling: $NUTCH/SZU_Crawl_2, using the correcte
 because a new crawlling is more "pure" than the previous one and is unaffected by the potential side-effect of "mergedb", "mergelinkdb".
 
 cmdline used: bin/mycrawl urls/SZUseed.txt SZU_Crawl_2 http://localhost:8983/solr 100 | tee SZU_Crawl_2_20140602.out
+
+### 2014-06-04 9:00
+(contents below are copied directly from github issue)  
+{content}  
+>我已经设置了conf/regex-urlfilter.txt注释掉这一条规则：  
+>\# skip URLs containing certain characters as probable queries, etc.  
+>-[?*!@=]   
+>让它不过滤公文通的网页。  
+>同时也把seed.txt的内容删掉， 只填写一条http://www.szu.edu.cn/board/ ，  
+>让它爬公文通， 它还是不爬。 不知道怎么回事了。  
+>{end content}   
+
+Now I figured out what happened. The webpage is filtered out by robots.txt. Even though robots.txt is located in http://www.szu.edu.cn/robots.txt , NOT in http://www.szu.edu.cn/board/robots.txt, nutch still tries to find robots.txt in http://www.szu.edu.cn/board/ 's parent domain http://www.szu.edu.cn/ and obviously nutch successfully finds it.
+
+That's how I figure out this:
+Nutch has a useful feature: dumping its crawl database.
+1. bin/nutch readdb -dump SZU_Crawl_3/crawldb/ DUMPCRAWLDB3  
+``
+http://www.szu.edu.cn/board/    Version: 7
+Status: 3 (db_gone)
+Fetch time: Sat Jul 19 17:00:05 CST 2014
+Modified time: Thu Jan 01 08:00:00 CST 1970
+Retries since fetch: 0
+Retry interval: 3888000 seconds (45 days)
+Score: 1.0
+Signature: null
+Metadata:
+        _pst_=robots_denied(18), lastModified=0
+
+``  
+
+##### The last line clearly indicates : ROBOTS_DENIED(18)  
+
+Now let's see what's in the other two databases using command readseg and readlinkdb  
+2. bin/nutch readlinkdb SZU_Crawl_2/linkdb/ -dump DUMPLINKDB2  
+``
+http://aec.szu.edu.cn/  Inlinks:  
+ fromUrl: http://www.szu.edu.cn/2014/news/index_82.html anchor: 社会培训  
+ fromUrl: http://www.szu.edu.cn/2014/news/702.html anchor: 社会培训  
+ fromUrl: http://www.szu.edu.cn/2014/news/2533.html anchor: 自学考试招生  
+ fromUrl: http://www.szu.edu.cn/2014/news/1862.html anchor: 自学考试招生  
+ fromUrl: http://www.szu.edu.cn/2014/news/180.html anchor: 成人高等教育  
+..............  
+``  
+
+3.  bin/nutch readseg SZU_Crawl_3/segments/20140604170003/ TESTDUMP  
+``
+  Recno:: 0  
+URL:: http://www.szu.edu.cn/board/  
+  
+..........  
+  
+CrawlDatum::    
+Version: 7    
+Status: 37 (fetch_gone)    
+Fetch time: Wed Jun 04 17:00:05 CST 2014  
+Modified time: Thu Jan 01 08:00:00 CST 1970  
+Retries since fetch: 0  
+Retry interval: 2592000 seconds (30 days)  
+Score: 1.0  
+Signature: null  
+Metadata:  
+        _ngt_=1401872401245  
+        _pst_=robots_denied(18), lastModified=0  
+``
