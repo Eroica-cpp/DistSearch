@@ -89,3 +89,5 @@ Now let's see what's in the other two databases using command readseg and readli
              _ngt_=1401872401245  
              _pst_=robots_denied(18), lastModified=0  
 
+尝试使用`bin/nutch freegen`手动生成含有一个公文通消息的网址的segment, 结果跟上面一样，仍然含有如下信息：
+      _pst_=robots_denied(18), lastModified=0
