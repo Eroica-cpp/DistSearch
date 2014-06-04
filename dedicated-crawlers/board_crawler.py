@@ -1,6 +1,7 @@
 """
 This script is used to crawl board pages.
 """
+import sys
 import urllib2
 
 def get_raw_html(iden):
@@ -10,7 +11,7 @@ def get_raw_html(iden):
 	
 	## check if swift
 	if doc.url == url:
-		raw_html = doc.read() #.decode("gbk")
+		raw_html = doc.read()
 	else:
 		raw_html = ""
 	
@@ -24,11 +25,15 @@ def save(iden, raw_html):
 
 def main():
 	
-	id_list = [100, 1000, 279207]
+	start = int(sys.argv[1])
+	end = int(sys.argv[2])
+	id_list = range(start, end+1)
 
 	for iden in id_list:
 		raw_html = get_raw_html(iden)
-		save(iden, raw_html)
+		if raw_html != "":
+			save(iden, raw_html)
+			print "id: %d, done!" % iden
 
 if __name__ == "__main__":
 	main()
