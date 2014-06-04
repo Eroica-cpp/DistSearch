@@ -43,8 +43,8 @@ cmdline used: bin/mycrawl urls/SZUseed.txt SZU_Crawl_2 http://localhost:8983/sol
 
 Now I figured out what happened. The webpage is filtered out by robots.txt. Even though robots.txt is located in http://www.szu.edu.cn/robots.txt , NOT in http://www.szu.edu.cn/board/robots.txt, nutch still tries to find robots.txt in http://www.szu.edu.cn/board/ 's parent domain http://www.szu.edu.cn/ and obviously nutch successfully finds it.
 
-That's how I figure out this:
-Nutch has a useful feature: dumping its crawl database.
+That's how I figure out this:  
+Nutch has a useful feature---dumping its crawl database.  
 1. bin/nutch readdb -dump SZU_Crawl_3/crawldb/ DUMPCRAWLDB3  
 
         http://www.szu.edu.cn/board/    Version: 7
@@ -57,27 +57,17 @@ Nutch has a useful feature: dumping its crawl database.
         Signature: null
         Metadata:
                 _pst_=robots_denied(18), lastModified=0
-
-
-
-
 ##### The last line clearly indicates : ROBOTS_DENIED(18)  
-
 Now let's see what's in the other two databases using command readseg and readlinkdb  
 2. bin/nutch readlinkdb SZU_Crawl_2/linkdb/ -dump DUMPLINKDB2  
-
-        http://aec.szu.edu.cn/  Inlinks:  
+         http://aec.szu.edu.cn/  Inlinks:  
          fromUrl: http://www.szu.edu.cn/2014/news/index_82.html anchor: 社会培训  
          fromUrl: http://www.szu.edu.cn/2014/news/702.html anchor: 社会培训  
          fromUrl: http://www.szu.edu.cn/2014/news/2533.html anchor: 自学考试招生  
          fromUrl: http://www.szu.edu.cn/2014/news/1862.html anchor: 自学考试招生  
          fromUrl: http://www.szu.edu.cn/2014/news/180.html anchor: 成人高等教育  
-        ..............  
-
- 
-
+         ..............   
 3. bin/nutch readseg SZU_Crawl_3/segments/20140604170003/ TESTDUMP  
-
         Recno:: 0  
         URL:: http://www.szu.edu.cn/board/  
           
