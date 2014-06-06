@@ -11,9 +11,9 @@ def main():
 	for i in range(process_num):
 		start = division * i + 1
 		end = division * (i + 1)
-		#os.system("python board_crawler.py %d %d" % (start, end))
-		print start, end
-
+		print "process id:", i+1
+		os.system("python board_crawler.py %d %d &" % (start, end))
+		#print start, end
 
 if __name__ == "__main__":
 	main()

@@ -24,7 +24,7 @@ def save(iden, raw_html):
 	f.close()
 
 def main():
-	
+	# start = 105558 # last break point
 	start = int(sys.argv[1])
 	end = int(sys.argv[2])
 	id_list = range(start, end+1)
