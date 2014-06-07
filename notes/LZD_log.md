@@ -58,6 +58,7 @@ Nutch has a useful feature---dumping its crawl database.
       Signature: null
       Metadata:
              _pst_=robots_denied(18), lastModified=0  
+
 The last line clearly indicates : ROBOTS_DENIED(18)  
 Now let's see what's in the other two databases using command readseg and readlinkdb  
 
@@ -92,3 +93,34 @@ Now let's see what's in the other two databases using command readseg and readli
 尝试使用`bin/nutch freegen`手动生成含有一个公文通消息的网址的segment, 结果跟上面一样，仍然含有如下信息：  
 
             _pst_=robots_denied(18), lastModified=0
+
+### 2014-06-07 9:00:00
+##### !IMPORTANT! This log is instructions on how to run Nutch in Eclipse and change Nutch's source codes
+In the log of **2014-06-04 9:00** I mentioned the nutch's inability to crawl webpages disallowed by robots.txt. Now I found a blog article on how to make Nutch ignore robots.txt via changing its source codes:  
+http://lc87624.iteye.com/blog/1625677  
+The prerequisites for this is that I have to run Nutch in Eclipse. 
+Here is the tutorial: http://wiki.apache.org/nutch/NutchTutorial (in Sec.1 Set up from the source distribution). But this
+tutorial is WRONG, and could not get nutch imported in Eclipse. The tutorial suggests to read [Running Nutch in Eclipse](http://wiki.apache.org/nutch/RunNutchInEclipse), I installed all the plugins mentioned in that webpage. But when I came to
+
+      Run this command:
+        ant eclipse
+     
+I got an error: 
+
+      .....
+      BUILD FAILED
+      ....
+      org.apache.thrift#thrift;0.2.0: not found
+      ....
+   
+So I turned to another tutorial and successfully get nutch imported in Eclipse: [nutch 1.7 导入 eclipse 其他版本亦可参考。](http://blog.csdn.net/leave00608/article/details/21468871)   
+Then I could modify the source codes for nutch. 
+
+##### Next comes a special step:
+* After I completed modifying the codes of org.apache.nutch.fetcher.Fetcher, I have Eclipse build the project.
+* Eclipse will release the compiled .class files in $PROJECT_DIR/bin/org/apache/nutch/fetcher
+* !IMPORTANT! I copied all the .class files, and use them to replace my original binary nutch installation's corresponding files --- apache-nutch-1.8/lib/**apache-nutch-1.8.jar**/org/apache/nutch/fetcher
+* Note that
+   1. I have to open .jar file with an archieve viewer.
+   2. I have to replace ALL .class files in fetcher/, not just Fetcher.class --- coz I tried to do so and got an JAVA Exception from fetcher when crawling. 
+
