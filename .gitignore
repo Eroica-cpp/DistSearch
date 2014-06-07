@@ -1,2 +1,4 @@
 *.md~
 /tmp/
+/data/
+*.pyc
