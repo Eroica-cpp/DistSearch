@@ -12,4 +12,4 @@ Reference
 -----------------
 1. [Latent Dirichlet allocation - Wikipedia](http://en.wikipedia.org/wiki/Latent_Dirichlet_allocation)
 2. [LDA（Latent Dirichlet Allocation）学习笔记](http://leyew.blog.51cto.com/5043877/860255)
-
+3. [Introduction to Latent Dirichlet Allocation](http://blog.echen.me/2011/08/22/introduction-to-latent-dirichlet-allocation/)
