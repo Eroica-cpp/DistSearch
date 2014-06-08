@@ -21,9 +21,11 @@ def load(path):
 	return doc
 
 def load_obj(filename):
+	print "loading object:", filename
 	f = open(filename)
 	obj = cPickle.load(f)
 	f.close()
+	print "done!"
 	return obj
 
 def save(dict, directory, filename = "data.pickle"):
@@ -80,14 +82,18 @@ def get_dict_pool(directory = "../data/"):
 	print "saved!"
 	
 def all_word_freq(directory = "../data/"):
+	
 	dict_pool = load_obj(directory + "dict_pool.pickle")
 	all_words = {}
+	progress = 0
 	for (iden, tmp_dict) in dict_pool.items():
 		for (word, counter) in tmp_dict.items():
 			if all_words.get(word) is None:
 				all_words[word] = counter
 			else:
 				all_words[word] += counter
+		progress += 1
+		print "id =", iden, "progress :", progress
 
 	words_num = len(all_words.keys())
 	for (word, counter) in all_words.items():
@@ -101,15 +107,18 @@ def extract_features(directory = "../data/"):
 	dict_pool = load_obj(directory + "dict_pool.pickle")
 
 	key_word_dict = {}
+	progress = 0
 	for (iden, word_dict) in dict_pool.items():
-		words_num = sum(word_dict.values)
+		words_num = sum(word_dict.values())
 		tmp_list = []
 		for (word, counter) in word_dict.items():
 			tfidf = float(counter) / (words_num * all_words[word])
 			tmp_list.append((word, tfidf))
 		## consider words with highest tfidf (ranking first half) as key words
-		key_words = sorted(tmp_list, key = lambda x: x[1], reversed = True)[:words_num/2]
-		key_word_dict[iden] = key_words
+		key_words = sorted(tmp_list, key = lambda x: x[1], reverse = True)[:words_num/5]
+		key_word_dict[iden] = [i[0] for i in key_words]
+		progress += 1
+		print "id =", iden, "progress :", progress
 
 	save(key_word_dict, directory, filename = "key_word_dict.pickle")
 
@@ -120,4 +129,5 @@ def main():
 
 if __name__ == "__main__":
 	# get_dict_pool()
-	all_word_freq()
+	# all_word_freq()
+	extract_features()
