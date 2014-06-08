@@ -20,8 +20,8 @@ def load(path):
 	f.close()
 	return doc
 
-def save(dict, directory):
-	f = open(directory + "data.pickle", "w")
+def save(dict, directory, filename = "data.pickle"):
+	f = open(directory + filename, "w")
 	cPickle.dump(dict, f)
 	f.close()
 	return
@@ -56,13 +56,13 @@ def get_freqdist(plain_text):
 	freqdist = nltk.FreqDist(words)
 	return freqdist
 
-def get_dict_pool(directory = "../data/board/"):
-	files = sorted(os.listdir(directory))
+def get_dict_pool(directory = "../data/"):
+	files = sorted(os.listdir(directory + "board/"))
 	dict_pool = {}
 	counter = 0
 	for f in files:
 		iden = int(f.split(".")[0])
-		raw_html = load(directory + f)
+		raw_html = load(directory + "board/" + f)
 		plain_text = strip_tags(raw_html)
 		freqdist = get_freqdist(plain_text)
 		dict_pool[iden] = freqdist
@@ -70,16 +70,47 @@ def get_dict_pool(directory = "../data/board/"):
 		print f, "counter =", counter
 
 	print "saving dict_pool..."
-	save(dict_pool, directory)
+	save(dict_pool, directory, filename = "dict_pool.pickle")
 	print "saved!"
 	
+def all_word_freq(directory = "../data/"):
+	dict_pool = cPickle.load(directory + "dict_pool.pickle")
+	all_words = {}
+	for (iden, tmp_dict) in dict_pool.items():
+		for (word, counter) in tmp_dict.items():
+			if all_words.get(word) is None:
+				all_words[word] = counter
+			else:
+				all_words[word] += counter
+
+	words_num = len(all_words.keys())
+	for (word, counter) in all_words.items():
+		all_words[word] = float(counter) / words_num
+
+	save(all_words, directory, filename = "all_word_freq.pickle")
+	return all_words
+
+def extract_features(directory = "../data/"):
+	all_words = cPickle.load(directory + "all_word_freq.pickle")
+	dict_pool = cPickle.load(directory + "dict_pool.pickle")
+
+	key_word_dict = {}
+	for (iden, word_dict) in dict_pool.items():
+		words_num = sum(word_dict.values)
+		tmp_list = []
+		for (word, counter) in word_dict.items():
+			tfidf = float(counter) / (words_num * all_words[word])
+			tmp_list.append((word, tfidf))
+		## consider words with highest tfidf (ranking first half) as key words
+		key_words = sorted(tmp_list, key = lambda x: x[1], reversed = True)[:words_num/2]
+		key_word_dict[iden] = key_words
+
+	save(key_word_dict, directory, filename = "key_word_dict.pickle")
+
 def main():
 	# iden = 276109
 	# path = "../data/board/%d.html" % iden
 	pass
-	
-
-
 
 if __name__ == "__main__":
 	get_dict_pool()
