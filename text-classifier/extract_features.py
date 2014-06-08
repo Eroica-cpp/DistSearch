@@ -20,6 +20,12 @@ def load(path):
 	f.close()
 	return doc
 
+def load_obj(filename):
+	f = open(filename)
+	obj = cPickle.load(f)
+	f.close()
+	return obj
+
 def save(dict, directory, filename = "data.pickle"):
 	f = open(directory + filename, "w")
 	cPickle.dump(dict, f)
@@ -74,7 +80,7 @@ def get_dict_pool(directory = "../data/"):
 	print "saved!"
 	
 def all_word_freq(directory = "../data/"):
-	dict_pool = cPickle.load(directory + "dict_pool.pickle")
+	dict_pool = load_obj(directory + "dict_pool.pickle")
 	all_words = {}
 	for (iden, tmp_dict) in dict_pool.items():
 		for (word, counter) in tmp_dict.items():
@@ -91,8 +97,8 @@ def all_word_freq(directory = "../data/"):
 	return all_words
 
 def extract_features(directory = "../data/"):
-	all_words = cPickle.load(directory + "all_word_freq.pickle")
-	dict_pool = cPickle.load(directory + "dict_pool.pickle")
+	all_words = load_obj(directory + "all_word_freq.pickle")
+	dict_pool = load_obj(directory + "dict_pool.pickle")
 
 	key_word_dict = {}
 	for (iden, word_dict) in dict_pool.items():
@@ -113,5 +119,5 @@ def main():
 	pass
 
 if __name__ == "__main__":
-	get_dict_pool()
-
+	# get_dict_pool()
+	all_word_freq()
