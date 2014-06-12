@@ -16,12 +16,12 @@ class RequestHandler(BaseHTTPRequestHandler):
     
     def do_GET(self):
         self._writeheaders()
-        self.wfile.write("Hello World!")
-        print "type(self.headers):", type(self.headers)
-        print "self.path =", self.path
-        if self.path.find("select") > 0:
-            tmp = result_filter.get_result_list(host + self.path)
-            print "len(tmp) =", len(tmp)
+        # self.wfile.write("Hello World!")
+        # print "type(self.headers):", type(self.headers)
+        # print "self.path =", self.path
+        # if self.path.find("select") > 0:
+        json_data = result_filter.get_json(host + self.path)
+        self.wfile.write(json_data)
 
 addr = ("", 8000)
 server = HTTPServer(addr,RequestHandler)

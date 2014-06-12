@@ -23,14 +23,20 @@ def get_result_list(url):
 	dict_list = solr_result.items()[1][1]["docs"]
 	return dict_list
 
+def get_json(url):
+	dict_list = get_result_list(url)
+	return simplejson.dumps(dict_list)
+
 def main():
 	"""
 	test code
 	"""
-	dict_list = get_result_list("http://192.168.31.143:8983/solr/collection1/select?q=%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97&rows=10&wt=json&indent=true")
+	url = "http://192.168.31.143:8983/solr/collection1/select?q=%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%A1%E7%AE%97&rows=10&wt=json&indent=true"
+	dict_list = get_result_list(url)
 
 	print "len(dict_list) =", len(dict_list)
-	
+
+	print type(get_json(url))
 
 if __name__ == "__main__":
 	main()
