@@ -7,9 +7,9 @@ $NUTCH: the directory where nutch lies.
 $SOLR : the directory where solr lies.  
 
 ### 2014-06-13 12:00:00
-#### Impress.js 
+## Impress.js 
 is good, with a super good example [hashdog](http://www.hashdog.com/brochure/#/how), and I decided to use it as the templete for our presentation.
-#### HTTrack
+## HTTrack
 is super good! It is just a advanced, easy-to-use, GUI version of Nutch. It has a lot of parameters available for tunning, really really flexible.
 
 
