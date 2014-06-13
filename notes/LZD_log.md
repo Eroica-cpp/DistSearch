@@ -6,6 +6,13 @@ Notations:
 $NUTCH: the directory where nutch lies.  
 $SOLR : the directory where solr lies.  
 
+### 2014-06-13 12:00:00
+## <font color="red"> Impress.js </font>
+is good, with a super good example [hashdog](http://www.hashdog.com/brochure/#/how), and I decided to use it as the templete for our presentation.  
+
+## HTTrack
+is super good! It is just a advanced, easy-to-use, GUI version of Nutch. It has a lot of customization parameters, really really flexible.
+
 
 ### 2014-06-07 9:00:00
 ##### !IMPORTANT! This log is instructions on how to run Nutch in Eclipse and change Nutch's source codes
