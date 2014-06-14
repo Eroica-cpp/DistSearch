@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from www.hashdog.com/brochure/ by HTTrack Website Copier/3.x [XR&CO'2008], Wed, 11 Jun 2014 15:35:12 GMT -->
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>CSE - Campus Search Engine</title>
+    
+    <meta name="description" content="Hashdog Brochure" />
+    <meta name="author" content="Alvarez Franco" />
+
+    <link href="css/impress-demo.css" rel="stylesheet" /> 
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.html" />
+    <!-- Latest compiled and minified CSS -->
+    <link href="css/font-awesome.css" rel="stylesheet" />
+    <link href="css/font-awesome-ie7.css" rel="stylesheet" />   
+    <link href="css/animate.css" rel="stylesheet" />   
+
+</head>
+
+
+<body class="impress-not-supported">
+
+<!--
+    For example this fallback message is only visible when there is `impress-not-supported` class on body.
+-->
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<div class="navegate"><span class="font doodle-nav">navigate</span></div>
+
+<div id="impress">
+
+    <div id="slogan" class="step" data-x="0" data-y="0" data-z="-5000" data-rotate="180" data-scale="1">
+        <p class="font logo"><span class="salmon">{</span>CSE<span class="salmon">}</span></p>
+        <div class="drop_box">
+            <span id="drop_down" class="font font-x0 slogan_finish img-routed">T. &nbsp Li, &nbsp Z.D. &nbsp Liu, &nbsp W.X. &nbsp Feng</span>
+        </div>        
+    </div>
+    
+    <!------------------------------- ABOUT -------------------------------------------->
+
+    <div id="what" class="step" data-x="0" data-y="0" data-rotate="0" data-scale="100">
+        <p class="font font-x2"><span class="salmon">{</span>#<span class="salmon">}</span><span class="font title">about</span></p>
+    </div>   
+
+    <div id="what_content" class="step" data-x="-32000" data-y="-500" data-z="0" data-scale="5">
+        <p class="text-center"><i class="icon-code icon-x4"></i></p>
+        <p class="font text-center"><span class="salmon">C</span>ampus <span class="salmon">S</span>earch <span class="salmon">E</span>ngine</p>
+        <p class="content-view">We build a campus-wide search engine to retrieve and integrate information in SZU, which is supported by Apache Solr and Apache Nutch. We also apply machine learning and data mining skills, especially recommender system techniques to enhance user experience.</p>
+    </div>
+
+
+    <!------------------------------- FEATURES -------------------------------------------->
+
+    <div id="how" class="step" data-x="-10000" data-y="30000" data-z="0" data-rotate="0" data-scale="200">
+        <p class="font font-x2"><span class="salmon">{</span>#<span class="salmon">}</span><span class="font title">features</span></p>
+    </div>    
+        
+    <div id="how_content" class="step" data-x="46000" data-y="31000" data-z="0" data-rotate="0" data-scale="20">
+        <p class="tittle">GUI （记得换成网站图片）<i class="icon-group"></i></p>
+        <p class="content-view" style="margin-left:-25%;"><img src="img/GUIscreenshot.jpg" /></p>
+    </div>
+
+    <div id="first" class="step" data-x="65000" data-y="41000" data-z="30000" data-rotate="10" data-scale="10"
+	style="width:900px">
+        <p class="tittle"><i class="icon-bar-chart"></i>Statistics</p>
+        <p class="content-view font2">Whole www.szu.edu.cn crawling</p>
+		<p>公文通: 749MB, aprox. 70000 articles</p>
+		<p>All the rest: 219MB, 17024 articles</p>
+		<p>Solr's index size:325MB</p>
+		<p>Total time: only 3 hours</p>
+    </div>     
+
+    <div id="second" class="step" data-x="75000" data-y="41000" data-z="80000" data-rotate="-10" data-scale="20">
+        <p class="tittle">Reranking Magic <i class="icon-magic"></i></p>
+        <p class="content-view">We record user's click history/contexts, and exploit them to <b class="font" style="font-size:60px;">rerank</b> Solr's query results so as to provide more revelent webpages.</p>
+    </div> 
+
+    <div id="third" class="step" data-x="85000" data-y="41000" data-z="20000" data-rotate="10" data-scale="10">
+        <p class="tittle">Email Reminder <i class="icon-envelope"></i></p>
+        <p class="content-view">We record user's click history/contexts, and exploit them to <b class="font" style="font-size:60px;">recommend</b> emerging webpages (e.g. new 公文通 announcements) that users might be interested in.</p>
+    </div> 
+
+    <div id="fourth" class="step" style="width:1100px;" data-x="95000" data-y="41000" data-z="70000" data-rotate="-10" data-scale="20">
+        <p class="tittle">Keyword Highlighting <i class="icon-lightbulb"></i></p>
+        <p class="content-view">Originally, the content in Solr's returning results always start from the beginning of the content of the picked-up webpages. However, a good search engine should show users the content of the picked-up webpages which is near to the searched keyword. </p><p>We implemented this, and highlight the queried keyword in the result.</p>
+    </div>
+
+    <div id="five" class="step" data-x="105000" data-y="41000" data-z="10000" data-rotate="10" data-scale="10">
+        <p class="tittle">更多功能<i class="icon-puzzle-piece"></i></p>
+        <p class="content-view">这里待添加我没有上面提到的功能</p>
+    </div>
+
+    <!--------------------- TECHNOLOGIES (changed to "Challenges") ------------------------------->
+
+    <div id="tech" class="step" data-x="-10000" data-y="80000" data-z="0" data-rotate="0" data-scale="300">
+        <p class="font font-x2"><span class="salmon">{</span>#<span class="salmon">}</span><span class="font title">Challenges</span></p>
+    </div> 
+
+    <div id="tech_content" class="step ruby" data-x="-58000" data-y="79500" data-z="0" data-rotate="0" data-scale="20">
+        <p class="text-center" style="font-size:60px;">Problems we meet (Nutch)</p>
+        <p class="content-view">Robots.txt<br/>
+		<code style="font-style: italic;">User-agent:* <br/>Disallow:/board/</code><br/>
+		We changed the source code of Nutch.
+		</p>
+    </div>
+    <div id="tech_content2" class="step" data-x="-800" data-y="79500" data-z="0" data-rotate="0" data-scale="20">
+        <p class="text-center" style="font-size:60px;">Problems we meet (Nutch)</p>
+        <p class="content-view font">Detect and Add New Webpages<br/>
+		We use a scheduled fetcher. The codes are present. We only need to configure it.<br/>
+		<p class="code" style="font-size: 20px;">&lt;property&gt;
+&lt;name&gt;db.fetch.schedule.class&lt;/name&gt;
+&lt;value&gt;org.apache.nutch.crawl.AdaptiveFetchSchedule&lt;/value&gt;
+&lt;/property&gt;<br/>
+.....<br/>
+db.fetch.schedule.adaptive.dec_rate (=0.2)<br/>
+db.fetch.schedule.adaptive.inc_rate (=0.4)<br/>
+</p>
+		</p>
+    </div>
+    <div id="tech_content3" class="step" data-x="50000" data-y="79500" data-z="0" data-rotate="0" data-scale="20">
+        <p class="text-center" style="font-size:60px;">Problems we meet (Solr)</p>
+        <p class="content-view font">Chinese Character Tokenizing<br/>
+		We employed IKAnalyzer.
+		<p class="code" style="font-size: 20px;">
+		"raw_query_string": "深圳大学", <br/>
+		"parsed_query": "text:深圳大学 text:深圳 text:大学"</p>
+		</p>
+    </div>
+    <div id="tech_content4" class="step" data-x="100000" data-y="79500" data-z="0" data-rotate="0" data-scale="20">
+        <p class="text-center" style="font-size:60px;">Problems we meet (Solr)</p>
+        <p class="content-view font">Rebuilding Index<br/>
+		We write a script to send all fetched segments from Nutch to Solr to rebuild the index.
+		</p>
+    </div>
+	
+    <div id="frontend" class="step animar" data-x="19000" data-y="83000" data-z="0" data-rotate="30" data-scale="15">
+        <p class="font tech-size">Technology Employed <span class="salmon"><i class="icon-desktop"></i></span></p>
+        <ul class="text-center ">
+            <li class="clip img-circle big_one">
+				<img src="img/nutch.png" class="compassWide"/>
+				<span class="title_sub_tech">Nutch</span>
+            </li>
+            <li class="clip img-circle">
+                <img src="img/solr.png" class="compassWide" style=" width: 140px; height: 80px; "/>
+                <span class="title_sub_tech">Solr</span>
+            </li>        
+            <li class="clip img-circle big_one">
+                <img src="img/python.png" class="compass"/>
+                <span class="title_sub_tech">Python</span>
+            </li>        
+            <li class="clip img-circle">
+                <img src="img/php.png" class="compass"/>
+                <span class="title_sub_tech">PHP</span>
+            </li>
+            <li class="clip img-circle big_one">
+                <img src="img/bootstrap.png" class="compass"/>
+                <span class="title_sub_tech">Bootstrap</span>
+            </li>
+
+            <!-- Finish one list of five -->
+            
+            <li class="clip img-circle big_one">
+                <i class="icon-html5"></i>
+                <span class="title_sub_tech">HTML5</span>
+            </li> 
+            <li class="clip img-circle">
+                <img src="img/jquery.png" class="compass" />
+                <span class="title_sub_tech">JQuery</span>
+            </li>
+            <li class="clip img-circle big_one">
+                <img src="img/nodejs.png" class="compass"/>
+                <span class="title_sub_tech">Node.js</span>
+            </li>
+            <li class="clip img-circle">
+                <img src="img/mysql.png" class="compass" />
+                <span class="title_sub_tech">MySQL</span>
+            </li>             
+            <li class="clear"></li>
+        </ul>
+    </div>    
+
+    <!------------------------------- SERVICES -------------------------------------------->
+
+
+    <div id="services" class="step" data-x="-10000" data-y="140000" data-z="0" data-rotate="0" data-scale="400">
+        <p class="font font-x2"><span class="salmon">{</span>#<span class="salmon">}</span><span class="font title">Services</span></p>
+    </div> 
+
+    <div id="services_one" class="step" data-x="-160000" data-y="141000" data-z="0" data-rotate="-90" data-scale="40">
+        <p class="font text-center font-x1 scaleZero">Software Factory</p>
+    </div>
+
+    <div id="services_tags" class="step" data-x="-160000" data-y="141000" data-z="2000" data-rotate-x="-90" data-rotate-y="90" data-rotate-z="0" data-scale="12">
+        <p class="text-center upLine"><span class="salmon"><i class="icon-minus"></i><i class="icon-minus"></i><i class="icon-minus"></i><i class="icon-minus"></i><i class="icon-minus"></i><i class="icon-minus"></i><i class="icon-minus"></i></span></p>
+        <p class="text-center font scaleZero">Analisis<br />
+        Design<br />
+        Development<br />
+        Testing<br />
+        QA<br />
+        IT Consulting<p/>
+        <p class="text-center downLine"><span class="salmon"><i class="icon-minus"></i><i class="icon-minus"></i><i class="icon-minus"></i><i class="icon-minus"></i><i class="icon-minus"></i><i class="icon-minus"></i><i class="icon-minus"></i></span></p>
+    </div>
+
+    <!------------------------------- SUCCESS -------------------------------------------->
+
+    <div id="success" class="step" data-x="89000" data-y="145000" data-z="0" data-rotate="-90" data-rotate-y="80" data-scale="40">
+        <p class="font font-x1"><span class="salmon">{</span>#<span class="salmon">}</span><span class="font title">Success Stories</span></p>
+    </div>
+
+    <div id="success_map" class="step" data-x="78000" data-y="148000" data-z="0" data-rotate-x="0" data-rotate-y="170" data-rotate-z="-90" data-scale="30">
+        <div class="map_bg">
+                <div class="clients-logos img-circle california">
+                    <img src="img/hirolabs.png" />
+                    <span>California</span>
+                </div>
+                <div class="clients-logos img-circle atlanta">
+                    <img src="img/bandofcoders.png" />
+                    <span>Atlanta</span>
+                </div>                
+                <div class="clients-logos img-circle baires">
+                    <img src="img/a4bandas.png" />
+                    <span>Buenos Aires</span>
+                </div>                
+                <div class="clients-logos img-circle tcm">
+                    <img src="img/lagaceta.png" />
+                    <span>Tucumán</span>
+                </div>
+                <div class="clients-logos img-circle baires2">
+                    <img src="img/asante.png" />
+                    <span>Buenos Aires</span>
+                </div>
+                <div class="clients-logos img-circle spain">
+                    <img src="img/mckinsey.png" />
+                    <span>España</span>
+                </div>            
+        </div>
+
+    </div>
+
+    <div id="slogan-finish" class="step finish" data-x="82000" data-y="145000" data-z="" data-rotate="1000" data-scale="1">
+        <p class="font logo"><span class="salmon">{</span>hash<span class="salmon">d</span>og<span class="salmon">}</span></p>
+        <div class="drop_box">
+            <span class="font font-x0 slogan_finish img-routed">Creative<span class="dark">.</span>Simple</span>            
+            <span id="drop_down" class="font font-x0 slogan_finish img-routed">Software<span class="dark">.</span>Factory</span>
+        </div>
+    </div>
+
+<!-- finish impress -->
+
+</div>
+
+<div class="hint">
+    <p class="mouse">Use Arrows or SpaceBar keys to navigate</p>
+</div>
+
+<div class="menu">
+    <ul>
+        <li><a href="#slogan"  class="font">Home <i class="icon-home"></i></a></li>
+        <li><a href="#what" class="font">About <i class="icon-code"></i></a></li>
+        <li><a href="#how" class="font">Features <i class="icon-sitemap"></i></a></li>
+        <li><a href="#tech" class="font">Challenges <i class="icon-cogs"></i></a></li>
+        <li><a href="#services" class="font">Services <i class="icon-beaker"></i></a></li>
+        <li><a href="#success" class="font">Succes Stories <i class="icon-star"></i></a></li>
+    </ul>  
+</div>  
+<button id="next"><span class="next"><i class="icon-double-angle-right"></i></span></button> 
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/impress.js"></script>
+<script src="js/script.js"></script>
+
+</body>
+
+<!-- Mirrored from www.hashdog.com/brochure/ by HTTrack Website Copier/3.x [XR&CO'2008], Wed, 11 Jun 2014 15:35:48 GMT -->
+</html>
