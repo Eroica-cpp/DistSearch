@@ -18,7 +18,20 @@ time, mark, audio, video {
     font: inherit;
     vertical-align: baseline;
 }
-
+code,.code {
+padding: 0px 5px 2px;
+border: 1px solid #dddddd;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+-moz-background-clip: padding;
+-webkit-background-clip: padding-box;
+background-clip: padding-box;
+font-family: Monaco, "DejaVu Sans Mono", "Courier New", monospace;
+font-size: 50px;
+color: #666666;
+background: #f8f8f8;
+}
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
@@ -647,8 +660,7 @@ transition: opacity 1s, transform 0.5s 1s;
     margin: 5px;
     width: 150px;
     height: 150px;
-    background-color: #323639;
-    border: 1px solid #1f2224;
+    background-color: rgba(22, 2, 2, 0.44);
     color: white;
     float: left;
     text-align: center;
@@ -678,9 +690,14 @@ transition: opacity 1s, transform 0.5s 1s;
     text-align: center;
 }
 .compass {
-    width: 65px;
+    width: 80px;
+    height: 80px;  
+}
+.compassWide {
+    width: 120px;
     height: 65px;  
 }
+
 .text-center {
     text-align: center;
 }

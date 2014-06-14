@@ -21,6 +21,7 @@
 
 </head>
 
+
 <body class="impress-not-supported">
 
 <!--
@@ -95,39 +96,52 @@
         <p class="content-view">Through agile and interactive precess, we will quickly transform requirements into working software. Delivering value that you can test and give us feedback on.</p>
     </div>
 
-    <!------------------------------- TECHNOLOGIES -------------------------------------------->
+    <!--------------------- TECHNOLOGIES (changed to "Challenges") ------------------------------->
 
     <div id="tech" class="step" data-x="-10000" data-y="80000" data-z="0" data-rotate="0" data-scale="300">
-        <p class="font font-x2"><span class="salmon">{</span>#<span class="salmon">}</span><span class="font title">technologies</span></p>
+        <p class="font font-x2"><span class="salmon">{</span>#<span class="salmon">}</span><span class="font title">Challenges</span></p>
     </div> 
 
     <div id="tech_content" class="step ruby" data-x="-58000" data-y="79500" data-z="0" data-rotate="0" data-scale="20">
-        <p class="text-center"><img src="img/ruby_icon.png" class="standGem" /></p>
-        <p class="content-view">Our main tech stack is Rails. In this area we go both backend and frontend. In here we work.</p>
+        <p class="text-center" style="font-size:60px;">Problems we meet (Nutch)</p>
+        <p class="content-view">Robots.txt<br/>
+		<code style="font-style: italic;">User-agent:* <br/>Disallow:/board/</code><br/>
+		We changed the source code of Nutch.
+		</p>
+    </div>
+    <div id="tech_content2" class="step" data-x="-800" data-y="79500" data-z="0" data-rotate="0" data-scale="20">
+        <p class="text-center" style="font-size:60px;">Problems we meet (Nutch)</p>
+        <p class="content-view">Detect and Add New Webpages<br/>
+		We use a scheduled fetcher. The codes are present. We only have to properly configure it.<br/>
+		<p class="code" style="font-size: 20px;">&lt;property&gt;
+&lt;name&gt;db.fetch.schedule.class&lt;/name&gt;
+&lt;value&gt;org.apache.nutch.crawl.AdaptiveFetchSchedule&lt;/value&gt;
+&lt;/property&gt;</p>
+		</p>
     </div>
 
     <div id="frontend" class="step animar" data-x="19000" data-y="83000" data-z="0" data-rotate="30" data-scale="15">
-        <p class="font tech-size">Frontend <span class="salmon"><i class="icon-desktop"></i></span></p>
+        <p class="font tech-size">Technology Employed <span class="salmon"><i class="icon-desktop"></i></span></p>
         <ul class="text-center ">
             <li class="clip img-circle big_one">
-                <i class="icon-css3"></i>
-                <span class="title_sub_tech">CSS3</span>
+				<img src="img/nutch.png" class="compassWide"/>
+				<span class="title_sub_tech">Nutch</span>
             </li>
             <li class="clip img-circle">
-                <img src="img/compass.png" class="compass"/>
-                <span class="title_sub_tech">Compass</span>
+                <img src="img/solr.png" class="compassWide" style=" width: 140px; height: 80px; "/>
+                <span class="title_sub_tech">Solr</span>
             </li>        
             <li class="clip img-circle big_one">
-                <img src="img/bourbonneat.png" class="compass"/>
-                <span class="title_sub_tech">BourbonNeat</span>
+                <img src="img/python.png" class="compass"/>
+                <span class="title_sub_tech">Python</span>
             </li>        
             <li class="clip img-circle">
-                <i class="icon-twitter"></i>
+                <img src="img/php.png" class="compass"/>
+                <span class="title_sub_tech">PHP</span>
+            </li>
+            <li class="clip img-circle big_one">
+                <img src="img/bootstrap.png" class="compass"/>
                 <span class="title_sub_tech">Bootstrap</span>
-            </li>
-            <li class="clip img-circle big_one">
-                <img src="img/foundation.png" class="compass" />
-                <span class="title_sub_tech">Zurb Foundation</span>
             </li>
 
             <!-- Finish one list of five -->
@@ -139,136 +153,18 @@
             <li class="clip img-circle">
                 <img src="img/jquery.png" class="compass" />
                 <span class="title_sub_tech">JQuery</span>
-            </li>                
-            <li class="clip img-circle big_one">
-                <img src="img/coffeescript.png" class="compass" />
-                <span class="title_sub_tech">Coffiescript</span>
-            </li>
-            <li class="clip img-circle">
-                <img src="img/ember.png" class="compass" />
-                <span class="title_sub_tech">EmberJS</span>
             </li>
             <li class="clip img-circle big_one">
-                <img src="img/backbone.png" class="compass" />
-                <span class="title_sub_tech">BackboneJS</span>
-            </li>
-
-            <!-- Finish one list of five -->
-
-            <li class="clip img-circle big_one">
-                <img src="img/angular.png" class="compass" />
-                <span class="title_sub_tech">AngularJS</span>
-            </li>
-            <li class="clip img-circle">
-                <img src="img/nodejs.png" class="compass" />
-                <span class="title_sub_tech">ExpressJS</span>
-            </li>
-            <li class="clip img-circle big_one">
-                <img src="img/middleman.png" class="compass" />
-                <span class="title_sub_tech">Middleman</span>
-            </li>
-            <li class="clip img-circle">
-                <i class="icon-tablet"></i>
-                <span class="title_sub_tech">Responsive</span>
-            </li>
-            <li class="clear"></li>
-        </ul>
-    </div>    
-
-    <div id="backend" class="step animar" data-x="68000" data-y="80000" data-z="0" data-rotate="-30" data-scale="10">
-        <p class="font tech-size">Backend <span class="salmon"><i class="icon-cogs"></i></span></p>
-        <ul class="text-center ">
-            <li class="clip img-circle">
-                <img src="img/ruby.png" class="compass"/>
-                <span class="title_sub_tech">Ruby</span>
-            </li>             
-            <li class="clip img-circle big_one">
-                <img src="img/rubyonrails.png" class="compass"/>
-                <span class="title_sub_tech">RubyOnRails</span>
-            </li>      
-            <li class="clip img-circle">
-                <img src="img/sinatra_padrino.png" class="compass"/>
-                <span class="title_sub_tech">Sinatra</span>
-            </li>
-            <li class="clip img-circle big_one">
-                <img src="img/sinatra_padrino.png" class="compass"/>
-                <span class="title_sub_tech">Padrino</span>
-            </li>             
-            <li class="clip img-circle">
                 <img src="img/nodejs.png" class="compass"/>
                 <span class="title_sub_tech">Node.js</span>
             </li>
-
-            <!-- Finish one list of five -->
-
             <li class="clip img-circle">
                 <img src="img/mysql.png" class="compass" />
                 <span class="title_sub_tech">MySQL</span>
-            </li>
-            <li class="clip img-circle big_one">
-                <img src="img/postgresql.png" class="compass"/>
-                <span class="title_sub_tech">PostgreSQL</span>
-            </li>              
-            <li class="clip img-circle">
-                <img src="img/sql_server.png" class="compass" />
-                <span class="title_sub_tech">SQLServer</span>
-            </li>                
-            <li class="clip img-circle big_one">
-                <img src="img/mongo.png" class="compass" />
-                <span class="title_sub_tech">MongoDB</span>
-            </li>
-            <li class="clip img-circle">
-                <img src="img/couchdb.png" class="compass" />
-                <span class="title_sub_tech">CouchDB</span>
-            </li>
-
-            <!-- Finish one list of five -->
-
-            <li class="clip img-circle">
-                <img src="img/redis.png" class="compass" />
-                <span class="title_sub_tech">Redis</span>
-            </li>
-            <li class="clip img-circle big_one">
-                <img src="img/php.png" class="compass"/>
-                <span class="title_sub_tech">Kohana - PHP</span>
-            </li>            
-            <li class="clip img-circle">
-                <img src="img/memcached.png" class="compass" />
-                <span class="title_sub_tech">Memcached</span>
-            </li> 
-            <li class="clip img-circle big_one">
-                <img src="img/sphinx.png" class="compass" />
-                <span class="title_sub_tech">Sphinx</span>
-            </li>
-            <li class="clip img-circle">
-                <img src="img/elasticsearch.png" class="compass"/>
-                <span class="title_sub_tech">ElasticSearch</span>
-            </li>
-
-            <!-- Finish one list of five -->
-
-            <li class="clip img-circle">
-                <img src="img/chef.png" class="compass" />
-                <span class="title_sub_tech">Chef</span>
-            </li>
-            <li class="clip img-circle big_one">
-                <img src="img/puppet.png" class="compass" />
-                <span class="title_sub_tech">Puppet Labs</span>
-            </li>            
-            <li class="clip img-circle">
-                <img src="img/circleci.png" class="compass" />
-                <span class="title_sub_tech">CircleCI</span>
-            </li>
-            <li class="clip img-circle big_one">
-                <img src="img/climate.png" class="compass" />
-                <span class="title_sub_tech">CodeClimate</span>
-            </li>
-            <li class="clip img-circle">
-                <img src="img/travis.png" class="compass"/>
-                <span class="title_sub_tech">TravisCI</span>
-            </li>                    
-        </ul>     
-    </div>  
+            </li>             
+            <li class="clear"></li>
+        </ul>
+    </div>    
 
     <!------------------------------- SERVICES -------------------------------------------->
 
@@ -349,7 +245,7 @@
         <li><a href="#slogan"  class="font">Home <i class="icon-home"></i></a></li>
         <li><a href="#what" class="font">About <i class="icon-code"></i></a></li>
         <li><a href="#how" class="font">Features <i class="icon-sitemap"></i></a></li>
-        <li><a href="#tech" class="font">Technologies <i class="icon-cogs"></i></a></li>
+        <li><a href="#tech" class="font">Challenges <i class="icon-cogs"></i></a></li>
         <li><a href="#services" class="font">Services <i class="icon-beaker"></i></a></li>
         <li><a href="#success" class="font">Succes Stories <i class="icon-star"></i></a></li>
     </ul>  
