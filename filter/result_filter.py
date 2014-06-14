@@ -4,6 +4,7 @@ filter pages from solr, rearrange them and them return a new JSON string stream.
 import urllib2
 import re
 import json
+import recommender
 
 def is_valid(url):
 	"""
@@ -34,7 +35,7 @@ def refine(tmp_dict):
 
 	return new_dict
 
-def get_result_list(url):
+def get_result_list(url, uid = ""):
 	"""
 	return search results of solr, which is a list of python dictionaries.
 	"""
@@ -46,11 +47,16 @@ def get_result_list(url):
 	solr_result = json.load(response)
 	dict_list = solr_result.items()[1][1]["docs"]
 	
+	## refine content from raw html.
 	new_dict_list = []
 	for tmp_dict in dict_list:
 		## if the html is board page, refine and rearrange it.
 		if tmp_dict.get("url").find("board/view.asp") >= 0:
 			new_dict_list.append(refine(tmp_dict))
+
+	## return rearrange and recommend results
+	if uid != "":
+		return recommender.rearrange(new_dict_list, uid)
 
 	return new_dict_list
 
