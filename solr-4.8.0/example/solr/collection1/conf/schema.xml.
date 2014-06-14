@@ -299,15 +299,17 @@
     <fieldtype name="ignored" stored="false" indexed="false" multiValued="true" class="solr.StrField" />
 
     <!-- add by litao -->
-<!--     <fieldType name="text_ik" class="solr.TextField"> 
-         <analyzer class="org.wltea.analyzer.lucene.IKAnalyzer"/> 
-    </fieldType>    -->
     <fieldType name="text_ik" class="solr.TextField"> 
+        <analyzer class="org.wltea.analyzer.lucene.IKAnalyzer"/>
+        <analyzer type="index" isMaxWordLength="flase" class="org.wltea.analyzer.lucene.IKAnalyzer"/>
+        <analyzer type="query" isMaxWordLength="true" class="org.wltea.analyzer.lucene.IKAnalyzer"/> 
+    </fieldType>   
+<!--     <fieldType name="text_ik" class="solr.TextField"> 
      
         <analyzer type="index" isMaxWordLength="flase" class="org.wltea.analyzer.lucene.IKAnalyzer"/> 
         <analyzer type="query" isMaxWordLength="true" class="org.wltea.analyzer.lucene.IKAnalyzer"/> 
      
-    </fieldType>
+    </fieldType> -->
 
  </types>
 
@@ -323,16 +325,16 @@
     <field name="host" type="url" stored="false" indexed="true"/>
     <field name="url" type="url" stored="true" indexed="true" required="true"/>
     <!-- stored=true for highlighting, use term vectors  and positions for fast highlighting -->
-    <field name="content" type="text_general" stored="true" indexed="true"/>
-    <field name="title" type="text_general" stored="true" indexed="true"/>
+    <field name="content" type="text_ik" stored="true" indexed="ture" multiValued="ture"/>
+    <field name="title" type="text_general" stored="false" indexed="true"/>
     <field name="cache" type="string" stored="true" indexed="false"/>
     <field name="tstamp" type="date" stored="true" indexed="false"/>
 
     <!-- catch-all field -->
-    <field name="text" type="text_general" stored="false" indexed="true" multiValued="ture"/>
+    <field name="text" type="text_ik" stored="ture" indexed="true" multiValued="ture"/>
 
     <!-- fields for index-anchor plugin -->
-    <field name="anchor" type="text_general" stored="true" indexed="true"
+    <field name="anchor" type="text_ik" stored="true" indexed="true"
         multiValued="true"/>
 
     <!-- fields for index-more plugin -->
@@ -362,8 +364,8 @@
     <field name="_version_" type="long" indexed="true" stored="true"/>
 
     <!--add by litao-->
-    <field name="name" type="text_ik" indexed="true" stored="true" multiValued="false" />
-
+<!--     <field name="name" type="text_ik" indexed="true" stored="true" multiValued="false" />
+ -->
  </fields>
  <uniqueKey>id</uniqueKey>
  <defaultSearchField>text</defaultSearchField>
