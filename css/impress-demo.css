@@ -589,6 +589,11 @@ transition: opacity 1s, transform 0.5s 1s;
 .font {
     font-family: Antipasto;
 }
+.font2 {
+    font-family: enriqueta;
+	font-size:50px !important;
+	text-shadow: 0 0 10px rgba(0,0,0,0.5),0 0 30px rgba(0,0,0,0.25),0 2px rgba(0,0,0,0.75);
+}
 .nav {
     position: fixed;
     top: 50px;
