@@ -56,7 +56,7 @@ def get_result_list(url, uid = ""):
 
 	## return rearrange and recommend results
 	if uid != "":
-		return recommender.rearrange(new_dict_list)
+		return recommender.rearrange(new_dict_list, uid)
 
 	return new_dict_list
 
