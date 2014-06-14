@@ -3,7 +3,6 @@ recommender that get a list of pages(dictionary) and rearrange them
 according to users' preference
 """
 import MySQLdb
-import os
 
 def get_history_behavior(uid):
 	"""
@@ -19,7 +18,8 @@ def get_history_behavior(uid):
 	conn = MySQLdb.connect(host=host, user='cse', passwd=password, db='cse', port=3306, charset='utf8')
 	cur = conn.cursor()
 
-	sql = "show tables;"
+	sql = "select site_id from click where uid = '%s';" % uid
+	#sql = "select site_id from click where uid = 'test@163.com' "
 	cur.execute(sql)
 	content = cur.fetchall()
 	print content
@@ -30,10 +30,10 @@ def get_history_behavior(uid):
 	return []
 
 def rearrange(dict_list, uid):
-	
+
 	rearranged_list = []
 	return rearranged_list 
 
 if __name__ == "__main__":
 	# rearrange()
-	get_history_behavior(uid = "")
+	get_history_behavior(uid = "test@163.com")
