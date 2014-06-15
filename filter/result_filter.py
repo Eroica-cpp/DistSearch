@@ -61,7 +61,11 @@ def get_result_list(url, uid = ""):
 	return new_dict_list
 
 def get_json(url):
-	dict_list = get_result_list(url)
+	if url.find("uid=") >= 0:
+		uid = url.split("=")[-1]
+	else:
+		uid = ""
+	dict_list = get_result_list(url, uid)
 	return json.dumps(dict_list)
 
 def main():

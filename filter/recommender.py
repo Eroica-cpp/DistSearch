@@ -29,11 +29,11 @@ def get_history_behavior(uid):
 	
 	return []
 
-def rearrange(dict_list, uid):
+def rerank(dict_list, uid):
 
-	rearranged_list = []
-	return rearranged_list 
+	reranked_list = []
+	return reranked_list 
 
 if __name__ == "__main__":
-	# rearrange()
+	# rerank()
 	get_history_behavior(uid = "test@163.com")
