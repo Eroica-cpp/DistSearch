@@ -53,7 +53,7 @@ def get_result_list(url, uid = ""):
 	for tmp_dict in dict_list:
 		## if the html is board page, refine and rearrange it.
 		if tmp_dict.get("url").find("board/view.asp") >= 0:
-			new_dict_list.append(highlight(refine(tmp_dict)))
+			new_dict_list.append(highlight(query, refine(tmp_dict)))
 
 	## return rearrange and recommend results
 	if uid != "":
@@ -62,6 +62,7 @@ def get_result_list(url, uid = ""):
 	return new_dict_list
 
 def highlight(query, tmp_dict):
+	tmp_dict["title"] = tmp_dict["title"].replace(query, "<em>%s</em>" % query)
 	tmp_dict["content"] = tmp_dict["content"].replace(query, "<em>%s</em>" % query)
 	return tmp_dict
 
