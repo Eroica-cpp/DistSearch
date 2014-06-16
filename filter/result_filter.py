@@ -68,10 +68,14 @@ def highlight(query, tmp_dict):
 	return tmp_dict
 
 def get_json(url):
+	query_num = 200
 	if url.find("userid=") >= 0:
 		uid = url.split("userid=")[1]
 	else:
 		uid = ""
+
+	## change query number
+	url = re.sub(r"rows=\d*", "rows=%d" % query_num, url)
 	dict_list = get_result_list(url, uid)
 	return json.dumps(dict_list)
 

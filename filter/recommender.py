@@ -76,6 +76,7 @@ def rerank(dict_list, uid):
 
 	history_clicks = get_history_behavior(uid)
 	solr_urls = [i["url"] for i in dict_list if i.get("url") is not None]
+	#solr_ids = [i.split("id=")[1] for i in solr_urls if i.find("id=") >= 0]
 
 	if len(history_clicks) != 0:
 		tmp = get_distance_rank(history_clicks, solr_urls)
