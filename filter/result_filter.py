@@ -45,6 +45,7 @@ def get_result_list(url, uid = ""):
 	request = urllib2.Request(url)
 	response = urllib2.urlopen(request)
 	solr_result = json.load(response)
+	query = solr_result.items()[0][1]['params']['q']
 	dict_list = solr_result.items()[1][1]["docs"]
 	
 	## refine content from raw html.
@@ -52,7 +53,7 @@ def get_result_list(url, uid = ""):
 	for tmp_dict in dict_list:
 		## if the html is board page, refine and rearrange it.
 		if tmp_dict.get("url").find("board/view.asp") >= 0:
-			new_dict_list.append(refine(tmp_dict))
+			new_dict_list.append(highlight(query, refine(tmp_dict)))
 
 	## return rearrange and recommend results
 	if uid != "":
@@ -60,8 +61,17 @@ def get_result_list(url, uid = ""):
 
 	return new_dict_list
 
+def highlight(query, tmp_dict):
+	tmp_dict["title"] = tmp_dict["title"].replace(query, "<em>%s</em>" % query)
+	tmp_dict["content"] = tmp_dict["content"].replace(query, "<em>%s</em>" % query)
+	return tmp_dict
+
 def get_json(url):
-	dict_list = get_result_list(url)
+	if url.find("uid=") >= 0:
+		uid = url.split("=")[-1]
+	else:
+		uid = ""
+	dict_list = get_result_list(url, uid)
 	return json.dumps(dict_list)
 
 def main():
