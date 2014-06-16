@@ -23,7 +23,6 @@ def get_history_behavior(uid):
 	#sql = "select site_id from click where uid = 'test@163.com' "
 	cur.execute(sql)
 	click_pages = [i[0] for i in cur.fetchall()]
-	print click_pages
 
 	cur.close()
 	conn.close()
@@ -48,7 +47,6 @@ def get_distance_rank(history_clicks, solr_urls):
 	info = {}
 	for iden in solr_ids:
 		for hist_iden in history_ids:
-			# print "iden =", iden, "hist_iden =", hist_iden
 			max_num = max(int(iden), int(hist_iden))
 			min_num = min(int(iden), int(hist_iden))
 			sql = "select sim from sim_doc where id1 = '%d' and id2 = '%d';" % (min_num,max_num)
@@ -69,7 +67,10 @@ def get_distance_rank(history_clicks, solr_urls):
 	tmp = info.items()
 	sorted_tmp = sorted(tmp, key = lambda x: x[1])
 	distance_rank = [i[0] for i in sorted_tmp]
-	return distance_rank
+	# print "solr_ids:", solr_ids
+	# print "distance_rank:", distance_rank
+	index = [solr_ids.index(i) for i in distance_rank]
+	return [distance_rank, index]
 
 def rerank(dict_list, uid):
 
@@ -77,12 +78,12 @@ def rerank(dict_list, uid):
 	solr_urls = [i["url"] for i in dict_list if i.get("url") is not None]
 
 	if len(history_clicks) != 0:
-		distance_rank = get_distance_rank(history_clicks, solr_urls)
-	
-	## test code
-	os.system("echo date >> date.txt")
-
-	reranked_list = dict_list
+		tmp = get_distance_rank(history_clicks, solr_urls)
+		distance_rank = tmp[0]
+		index = tmp[1]
+		reranked_list = [dict_list[i] for i in index]
+	else:
+		reranked_list = dict_list
 	return reranked_list 
 
 if __name__ == "__main__":
