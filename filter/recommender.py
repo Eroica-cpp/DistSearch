@@ -72,19 +72,32 @@ def get_distance_rank(history_clicks, solr_urls):
 	index = [solr_ids.index(i) for i in distance_rank]
 	return [distance_rank, index]
 
+def hybrid(rank1, rank2):
+	"""
+	hybrid two ways of ranking results
+	"""
+	rank_sum = [rank1[i] + rank2[i] for i in range(len(rank1))]
+	sorted_list = sorted(rank_sum)
+	hybrid_index = [sorted_list.index(i) for i in rank_sum]
+	return hybrid_index
+
 def rerank(dict_list, uid):
 
 	history_clicks = get_history_behavior(uid)
 	solr_urls = [i["url"] for i in dict_list if i.get("url") is not None]
-	#solr_ids = [i.split("id=")[1] for i in solr_urls if i.find("id=") >= 0]
+	solr_ids = [i.split("id=")[1] for i in solr_urls if i.find("id=") >= 0]
 
 	if len(history_clicks) != 0:
 		tmp = get_distance_rank(history_clicks, solr_urls)
 		distance_rank = tmp[0]
 		index = tmp[1]
-		reranked_list = [dict_list[i] for i in index]
+		# reranked_list = [dict_list[i] for i in index]
 	else:
 		reranked_list = dict_list
+		return reranked_list
+
+	hybrid_index = hybrid(range(1, len(solr_ids) + 1), index)
+	reranked_list = [dict_list[i] for i in hybrid_index]
 	return reranked_list 
 
 if __name__ == "__main__":
