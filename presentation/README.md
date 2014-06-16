@@ -16,9 +16,18 @@ Presentation
 
 4. 深入讲解中间用的的算法和优化技术
 --------------
-	1. 全文检索
-	2. 推荐算法
-		1. content-based： 处理冷启动问题, 
-			1. 文本特征提取（tfidf, LDA， GMM）
-			2. kmeans, 多级索引
-		2. CF: 有用户群的时候用
+	- Full text search
+	- Recommender
+		- Content-Based Method： deal with cold setup problem
+			1. Text Feature Extraction
+				- VSM (Vector Space Model)
+				- LDA (Latent Dirichlet Allocation)
+				- GMM (Gaussian Mixture Model)
+			2. K-means
+				- faced problem: sparse matrix
+				- multi-level index
+		- Memory-Based Method (Collaborative Filter)
+			when we have certain amount of users and their behavior records
+			1. item-based
+			2. user-based 
+		
