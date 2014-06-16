@@ -115,7 +115,7 @@
     <div id="tech_content2" class="step" data-x="-800" data-y="79500" data-z="0" data-rotate="0" data-scale="20">
         <p class="text-center font" style="font-size:60px;">Problems we meet (Nutch)</p>
         <p class="content-view ">Detect and Add New Webpages<br/>
-		We use a scheduled webpage fetcher. If a webpages changes regularly, the fetcher will also adapt to its periodicity. <br/>(This feature is implemented by decreasing its next-fetch time by a factor(say,0.2), if Nutch finds a page has changed since its last fetch.)<br/>
+		We use a scheduled webpage fetcher. If a webpages changes regularly, the fetcher will also adapt to its periodicity. <br/>
 		<p class="code" style="font-size: 20px;">&lt;property&gt;
 &lt;name&gt;db.fetch.schedule.class&lt;/name&gt;
 &lt;value&gt;org.apache.nutch.crawl.AdaptiveFetchSchedule&lt;/value&gt;
@@ -123,7 +123,7 @@
 .....<br/>
 db.fetch.schedule.adaptive.dec_rate (=0.2)<br/>
 db.fetch.schedule.adaptive.inc_rate (=0.4)<br/>
-</p>
+		</p>
 		</p>
     </div>
     <div id="tech_content3" class="step" data-x="50000" data-y="79500" data-z="0" data-rotate="0" data-scale="20">
