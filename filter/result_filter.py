@@ -5,6 +5,7 @@ import urllib2
 import re
 import json
 import recommender
+import os
 
 def is_valid(url):
 	"""
@@ -47,7 +48,6 @@ def get_result_list(url, uid = ""):
 	solr_result = json.load(response)
 	query = solr_result.items()[0][1]['params']['q']
 	dict_list = solr_result.items()[1][1]["docs"]
-	head = 
 	
 	## refine content from raw html.
 	new_dict_list = []
@@ -65,11 +65,11 @@ def get_result_list(url, uid = ""):
 def highlight(query, tmp_dict):
 	tmp_dict["title"] = tmp_dict["title"].replace(query, "<em>%s</em>" % query)
 	tmp_dict["content"] = tmp_dict["content"].replace(query, "<em>%s</em>" % query)
-	return [head] + tmp_dict
+	return tmp_dict
 
 def get_json(url):
-	if url.find("uid=") >= 0:
-		uid = url.split("=")[-1]
+	if url.find("userid=") >= 0:
+		uid = url.split("userid=")[1]
 	else:
 		uid = ""
 	dict_list = get_result_list(url, uid)

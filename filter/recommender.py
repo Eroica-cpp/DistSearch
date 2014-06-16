@@ -3,6 +3,7 @@ recommender that get a list of pages(dictionary) and rearrange them
 according to users' preference
 """
 import MySQLdb
+import os
 
 def get_history_behavior(uid):
 	"""
@@ -47,17 +48,20 @@ def get_distance_rank(history_clicks, solr_urls):
 	info = {}
 	for iden in solr_ids:
 		for hist_iden in history_ids:
-			sql = "select sim from sim_doc where id1 = '%s' and id2 = '%s';" % tuple(sorted(int(iden), int(hist_iden)))
+			# print "iden =", iden, "hist_iden =", hist_iden
+			max_num = max(int(iden), int(hist_iden))
+			min_num = min(int(iden), int(hist_iden))
+			sql = "select sim from sim_doc where id1 = '%d' and id2 = '%d';" % (min_num,max_num)
 			cur.execute(sql)
-			if len(cur.fetchall()) != 0:
-				distance = cur.fetchall()[0][0]
+			tmp = cur.fetchall()
+			if len(tmp) != 0:
+				distance = tmp[0][0]
 			else:
 				distance = 1.0
 			if info.get(iden) is None:
 				info[iden] = distance
 			else:
 				info[iden] += distance
-	print click_pages
 
 	cur.close()
 	conn.close()
@@ -69,9 +73,15 @@ def get_distance_rank(history_clicks, solr_urls):
 
 def rerank(dict_list, uid):
 
-	# load require data
-
+	history_clicks = get_history_behavior(uid)
 	solr_urls = [i["url"] for i in dict_list if i.get("url") is not None]
+
+	if len(history_clicks) != 0:
+		distance_rank = get_distance_rank(history_clicks, solr_urls)
+	
+	## test code
+	os.system("echo date >> date.txt")
+
 	reranked_list = dict_list
 	return reranked_list 
 
