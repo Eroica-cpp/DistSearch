@@ -1,5 +1,5 @@
 """
-filter pages from solr, rearrange them and them return a new JSON string stream.
+filter pages from solr, rerank them and them return a new JSON string stream.
 """
 import urllib2
 import re
@@ -14,7 +14,7 @@ def is_valid(url):
 
 def refine(tmp_dict):
 	"""
-	rearrange dictionary, e.g. rearrange keys and values for board pages.
+	rerank dictionary, e.g. rerank keys and values for board pages.
 	"""
 	new_dict = {}
 	new_dict["url"] = tmp_dict["url"]
@@ -52,13 +52,13 @@ def get_result_list(url, uid = ""):
 	## refine content from raw html.
 	new_dict_list = []
 	for tmp_dict in dict_list:
-		## if the html is board page, refine and rearrange it.
+		## if the html is board page, refine and rerank it.
 		if tmp_dict.get("url").find("board/view.asp") >= 0:
 			new_dict_list.append(highlight(query, refine(tmp_dict)))
 
-	## return rearrange and recommend results
+	## return rerank and recommend results
 	if uid != "":
-		return recommender.rearrange(new_dict_list, uid)
+		return recommender.rerank(new_dict_list, uid)
 
 	return new_dict_list
 
