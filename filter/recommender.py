@@ -53,7 +53,7 @@ def get_distance_rank(history_clicks, solr_urls):
 			cur.execute(sql)
 			tmp = cur.fetchall()
 			if len(tmp) != 0:
-				distance = tmp[0][0]
+				distance = 1.0 - tmp[0][0]
 			else:
 				distance = 1.0
 			if info.get(iden) is None:
