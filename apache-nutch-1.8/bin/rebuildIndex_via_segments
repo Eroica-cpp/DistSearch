@@ -1,0 +1,18 @@
+#!/bin/bash
+bin=bin
+SOLRURL="http://localhost:8983/solr/"
+CRAWL_PATH=$1
+
+for SEGMENT in $(ls $1/segments); do
+  echo $bin/nutch index -D solr.server.url=$SOLRURL $CRAWL_PATH/crawldb -linkdb $CRAWL_PATH/linkdb $CRAWL_PATH/segments/$SEGMENT
+
+  $bin/nutch index -D solr.server.url=$SOLRURL $CRAWL_PATH/crawldb -linkdb $CRAWL_PATH/linkdb $CRAWL_PATH/segments/$SEGMENT
+  
+
+  echo "Cleanup on SOLR index -> $SOLRURL"
+  $bin/nutch clean -D solr.server.url=$SOLRURL $CRAWL_PATH/crawldb
+  
+  if [ $? -ne 0 ] 
+   then exit $? 
+  fi
+done
